@@ -1,0 +1,19 @@
+package Herencia4;
+
+public class Animal {
+	private String name;
+	
+	public Animal(String name) {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [name=" + name + "]"+
+				"Mammal [name=" + name + "]"+
+				"Cat [name=" + name + "]"+
+				"Dog [name=" + name + "]";
+	}
+	
+	
+}

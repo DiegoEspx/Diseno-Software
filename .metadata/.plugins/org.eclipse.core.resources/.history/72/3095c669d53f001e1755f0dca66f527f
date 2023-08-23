@@ -1,0 +1,18 @@
+package Herencia1;
+
+public class Main {
+	public static void main(String[]args) {
+		Circle circle1=new Circle(3.2,"black");
+		
+		System.out.println("Circulo 1: ");
+		circle1.printCircle();
+		System.out.println("Area: " + circle1.getArea());
+		
+		Cylinder cylinder1=new Cylinder(2.3,2.1,"red");
+		System.out.println("cilindro 1: ");
+		cylinder1.printCylinder();
+		System.out.println("Area: " + cylinder1.getArea());
+	}
+	
+	
+}

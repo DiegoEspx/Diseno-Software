@@ -1,0 +1,15 @@
+package Herencia1;
+
+public class Main {
+	public static void main(String[]args) {
+		Circle circle1=new Circle(3.2,"black");
+		
+		System.out.println("Circulo 1: ");
+		circle1.printCircle();
+		System.out.println("Area: " + circle1.getArea());
+		
+		
+	}
+	
+	
+}

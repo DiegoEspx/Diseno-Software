@@ -1,0 +1,15 @@
+package Ejemplo2;
+
+public class MainEmployee {
+	public static void main(String[]args) {
+		//int id, String firstName, String lastName, int salary
+		Employee employeeone=new Employee(04,"Diego","España",3000000);
+		
+		System.out.println("informacion primer empleado: ");
+		System.out.println("nombre y apellido: "+employeeone.getName());
+		System.out.println("ID: "+employeeone.getId());
+		System.out.println("Salario: "+employeeone.getSalary());
+		System.out.println("Salario Anual: "+employeeone.getAnnualSalary());
+		System.out.println("Aumento de Salario del 30%: "+employeeone.getSalary());
+	}
+}

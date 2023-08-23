@@ -1,0 +1,13 @@
+package Ejemplo5;
+
+public class MainAuthor {
+	public static void main (String[]args) {
+		//String name, String email, char gender
+		Author authorone=new Author("Diego", "d.alejo@gmail.com",'f');
+		
+		System.out.println("information author one: ");
+		System.out.println("name: "+authorone.getName());
+		System.out.println("email: "+authorone.getEmail());
+		System.out.println("gender: "+authorone.getGender);
+	}
+}

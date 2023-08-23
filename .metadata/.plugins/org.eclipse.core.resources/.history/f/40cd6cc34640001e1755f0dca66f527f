@@ -1,0 +1,15 @@
+package herencia;
+
+public class Main {
+	public static void main(String[]args) {
+		//id, dni, nombre, apellido, domicilio, telefono, numlegado, cargo, sueldo
+		Empleado empleado1=new Empleado(32,"2312r124", "Diego", "guerrero", "lorenzo",
+				"3123125123", 32, "gerente", 3231344);
+		
+		System.out.println("empleado 1 information: ");
+		empleado1.getCargo();
+		
+	
+	
+	}
+}

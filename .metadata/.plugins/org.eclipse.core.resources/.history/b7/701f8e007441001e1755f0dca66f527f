@@ -1,0 +1,40 @@
+package Ejemplo5;
+
+public class Author {
+	private String name;
+	private String email;
+	private char gender;
+	public Author(String name, String email, char gender) {
+		this.name = name;
+		this.email = email;
+		this.gender = gender;
+	}
+	public String getName() {
+		return name;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public char getGender(){
+		if (!gender("m") || !gender("f")) {
+	        return gender;  // Devuelve el primer carácter del género
+	    } else {
+	        // Aquí puedes agregar alguna lógica en caso de que el género sea "m" o "f"
+	        // Por ejemplo, podrías mostrar un mensaje de error o realizar alguna acción.
+	        return '\0';
+	    }
+	}
+	
+	@Override
+	public String toString() {
+		return "Author [name=" + name + ", email=" + email + ", gender=" + gender + "]";
+	}
+	
+	
+	
+}

@@ -1,0 +1,22 @@
+package Ejemplo6;
+
+public class Book {
+	
+	
+	private class Author{
+		private String name;
+		private String email;
+		private char gender;
+	}
+	private String name;
+	private double price;
+	private int qty;
+	private Author author;
+	
+	 public Book(String name, double price,int qty, Author author) {
+	        this.name = name;
+	        this.price=price;
+	        this.qty=qty;
+	        this.author = author;
+	    }
+}

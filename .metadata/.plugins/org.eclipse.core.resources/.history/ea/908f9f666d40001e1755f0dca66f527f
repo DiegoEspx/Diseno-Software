@@ -1,0 +1,16 @@
+package Herencia2;
+
+public class MainHerencia {
+	public static void main(String[]args) {
+		//name, address, program, year, fee
+		Student studentOne=new Student("Camilo", "Lorenzo carr3", "Ing.Software",2023,3000000);
+		
+		System.out.println("Information Firs Student: ");
+		System.out.println("");
+		studentOne.printPerson();
+		studentOne.printStudent();
+		
+	
+	
+	}
+}

@@ -1,0 +1,13 @@
+package Herencia4;
+
+public class MainAnimal {
+	public static void main(String[]args) {
+		Animal animal = new Animal("copo");
+        Mammal mammal = new Mammal("cat");
+        Cat cat = new Cat("Meow");
+        Dog dog = new Dog("Woof");
+
+        System.out.println(cat);
+        System.out.println(dog);
+	}
+}
