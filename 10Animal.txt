@@ -1,0 +1,79 @@
+package Herencia4;
+
+public class Animal {
+	private String name;
+	
+	public Animal(String name) {
+		this.name=name;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [name=" + name + "]";		
+	}
+	
+	
+}
+
+public class Mammal extends Animal{
+
+	public Mammal(String name) {
+        super(name);
+    }
+
+    @Override
+    public String toString() {
+    	//return "Animal [name=" + name + "]";
+
+        return "Mammal [Animal [name=" + super.toString() +"]";
+    }
+}
+public class Dog extends Mammal {
+	public Dog(String name) {
+        super(name);
+    }
+	public void greets() {
+		System.out.println("Woof");
+	}
+	
+    @Override
+    public String toString() {
+        return "Dog [" + super.toString() + "]";
+    }
+
+}
+public class Cat extends Mammal{
+	
+	 public Cat(String name) { 
+	      super(name);
+	    }
+	 public void greets() {
+			System.out.println("Meow");
+		}
+		
+
+	 @Override
+	 public String toString() {
+     return "Cat [" + super.toString() + "]";
+     
+     }
+}
+public class MainAnimal {
+	public static void main(String[]args) {
+		Animal animal = new Animal("perro");
+        Mammal mammal = new Mammal("gato");
+        
+        Cat cat = new Cat("Michi");
+        Dog dog = new Dog("Firulais");
+
+        
+        
+        System.out.println(animal.toString());
+        System.out.println(mammal.toString());
+        System.out.println(cat);
+        cat.greets();
+        System.out.println(dog);
+        dog.greets();
+	}
+}
+

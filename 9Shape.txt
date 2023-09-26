@@ -1,0 +1,208 @@
+package Herencia3;
+
+public class Shape {
+	
+	private String color;
+	private boolean filled;
+	public Shape() {
+		super();
+		color="red";
+		filled= true;
+	}
+	public Shape(String color, boolean filled) {
+		super();
+		this.color = color;
+		this.filled = filled;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public boolean isFilled() {
+		return filled;
+	}
+	public void setFilled(boolean filled) {
+		this.filled = filled;
+	}
+	@Override
+	public String toString() {
+		return "Shape [color=" + color + ", filled=" + filled + "]";
+	}
+		
+}
+public class Circle extends Shape{
+
+private double radius;
+	
+	//constructor
+	public Circle() {
+		
+		radius=1.0;
+	}
+	
+	public Circle(double radius) {	
+		this.radius=radius;
+	}
+	
+
+
+	public Circle(String color, boolean filled, double radius) {
+		super(color, filled);
+		this.radius = radius;
+	}
+
+
+
+
+	//getters and setters
+	public double getRadius() {
+		return radius;
+	}
+
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	
+	//methods
+	public double getArea() {
+		double areacalculada=Math.PI * this.radius* this.radius;
+		return areacalculada;
+	}
+	public double getPerimeter() {
+		
+		double circunferencia= 2 * Math.PI * this.radius;
+		return circunferencia;
+	}
+	
+	@Override
+	public String toString() {
+		return "Circle["+super.toString()+", radius=" + radius + "]";
+	}
+	
+	
+
+}
+public class Rectangle extends Shape{
+	
+	private double width;
+	private double length;
+	
+	public Rectangle() {
+		width=1.0;
+		length=1.0;	
+	}
+
+	public Rectangle(double width, double length) {
+		this.width = width;
+		this.length = length;
+	}
+
+	public Rectangle(String color, boolean filled, double width, double length) {
+		super(color, filled);
+		this.width = width;
+		this.length = length;
+	}
+
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public double getLength() {
+		return length;
+	}
+
+	public void setLength(double length) {
+		this.length = length;
+	}
+	
+	public double getArea() {
+		double area=this.width*this.length;
+		return area;
+	}
+	public double getPerimeter() {
+		double perimetro=2*(this.width+this.length);
+		return perimetro;
+	}
+
+	@Override
+	public String toString() {
+		return "Rectangle["+super.toString()+", width=" + width + ", length=" + length + "]";
+	}
+	
+	
+
+}
+public class Square extends Rectangle {
+    private double side;
+
+    public Square() {
+        setLength(side);
+        setWidth(side);
+    }
+
+    public Square(double side) {
+        super(side, side);
+        this.side = side;
+    }
+
+    public Square(double side, String color, boolean filled) {
+        super(); 
+        this.side = side;
+    }
+
+    public double getSide() {
+        return side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+        setLength(side); 
+        setWidth(side);
+    }
+
+    @Override
+    public void setWidth(double width) {
+        super.setWidth(width);
+        side = width;
+    }
+
+    @Override
+    public void setLength(double length) {
+        super.setLength(length);
+        side = length;
+    }
+
+    @Override
+    public String toString() {
+        return "Square[" + super.toString().replace("Rectangle[", "") + "side=" + side + "]";
+    }
+}
+public class Main {
+
+	public static void main(String[]args) {
+		Circle circulo= new Circle();
+		System.out.println(circulo.toString());
+		System.out.println("Area: "+ circulo.getArea());
+		System.out.println("perimetro: "+circulo.getPerimeter());
+		
+		System.out.println("_____________________________________________________");
+		
+		Rectangle rectangulo= new Rectangle();
+		System.out.println(rectangulo.toString());
+		System.out.println("Area: "+ rectangulo.getArea());
+		System.out.println("perimetro: "+rectangulo.getPerimeter());
+		
+		System.out.println("_____________________________________________________");
+		
+		Square cuadrado= new Square(5);
+		System.out.println(cuadrado.toString());
+	
+	}
+
+}

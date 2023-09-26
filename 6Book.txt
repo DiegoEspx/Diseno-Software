@@ -1,0 +1,108 @@
+package Ejemplo6;
+
+public class Author {
+		private String name;
+		private String email;
+		private char gender;
+		public Author(String name, String email, char gender) {
+			super();
+			this.name = name;
+			this.email = email;
+			this.gender = gender;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getEmail() {
+			return email;
+		}
+		public void setEmail(String email) {
+			this.email = email;
+		}
+		public char getGender() {
+			return gender;
+		}
+		public void setGender(char gender) {
+			this.gender = gender;
+		}
+		@Override
+		public String toString() {
+			return "[name=" + name + ", email=" + email + ", gender=" + gender +"]";
+		}
+		
+		
+		
+
+}
+
+
+package Ejemplo6;
+
+public class Book {
+		
+	private String name;
+	private double price;
+	private int qty;
+	private Author author;
+	public Book(String name, double price,int qty, Author author) {
+	       this.name = name;
+	       this.price=price;
+	       this.qty=qty;
+	       this.author = author;
+	   }
+
+	public String getName() {
+		return name;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQty() {
+		return qty;
+	}
+
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	@Override
+	public String toString() {
+		return "Book name=" + name + ", price=" + price + ", qty=" + qty + ", Author=" + author;
+	}
+
+	
+	
+	 
+	 
+	 
+}
+	package Ejemplo6;
+
+public class MainBook {
+	public static void main(String[]args) {
+		//String name, double price,int qty, Author author
+		Author authorone=new Author("España","sdsa.@gmail.com",'m');
+		
+		Book bookone=new Book("Diego",55000,2,authorone);
+		
+		System.out.println("information author:");
+		
+		System.out.println(bookone.toString());
+		System.out.println("--------------------------------------------");
+		
+	}
+}

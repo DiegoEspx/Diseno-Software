@@ -1,0 +1,171 @@
+package Herencia2;
+
+public class Person {
+	private String name;
+	private String address;
+	
+	//Constructor
+	public Person(String name, String address) {
+		this.name = name;
+		this.address = address;
+	}
+	
+
+	//getters and setters 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	//methods
+	
+	public void printPerson() {
+        System.out.println("NAME: " + name);
+        System.out.println("ADDRESS: " + address);
+      
+      
+    }
+	
+	
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", address=" + address + "]";
+	}
+	
+	
+	
+	
+}
+public class Staff extends Person{
+	private String school;
+	private double pay;
+	
+	//constructor
+	public Staff(String name, String address, String school, double pay) {
+		super(name, address);
+		this.school = school;
+		this.pay = pay;
+	}
+	
+	//getters and setters
+	public String getSchool() {
+		return school;
+	}
+
+
+	public void setSchool(String school) {
+		this.school = school;
+	}
+
+
+	public double getPay() {
+		return pay;
+	}
+
+
+	public void setPay(double pay) {
+		this.pay = pay;
+	}
+
+
+	public void printStaff() {
+		System.out.println("SCHOOL: "+ school);
+		System.out.println("PAY: "+ pay);
+	}
+
+	@Override
+	public String toString() {
+		return "Staff [school=" + school + ", pay=" + pay + "]";
+	}
+	
+	
+	
+}
+public class Student extends Person{
+	//atributes
+	private String program;
+	private int year;
+	private double fee;
+	
+	//constructor
+	public Student(String name, String address, String program, int year, double fee) {
+		super(name, address);
+		this.program = program;
+		this.year = year;
+		this.fee = fee;
+	}
+	
+	//getters and setters
+
+	public String getProgram() {
+		return program;
+	}
+
+	public void setProgram(String program) {
+		this.program = program;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public double getFee() {
+		return fee;
+	}
+
+	public void setFee(double fee) {
+		this.fee = fee;
+	}
+	
+	
+	public void printStudent(){
+		System.out.println("PROGRAM: "+program);
+		System.out.println("YEAR: "+year);
+		System.out.println("FEE: "+fee);
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Student [program=" + program + ", year=" + year + ", fee=" + fee + "]";
+	}
+	
+	
+	
+}
+public class MainHerencia {
+	public static void main(String[]args) {
+		//name, address, program, year, fee
+		Student studentOne=new Student("Sebastian", "Lorenzo carr3", "Ing.Software",2023,4000000);
+		
+		System.out.println("Firs Student Information: ");
+		studentOne.printPerson();
+		studentOne.printStudent();
+		
+		System.out.println("----------------------");
+		
+		//String name, String address, String school, double pay
+		Staff staffOne=new Staff("Diego","Marquetalia carr2", "Liceo Jose Felix Jimenez",1321233);
+		System.out.println("Firs Staff Information: ");
+		staffOne.printPerson();
+		staffOne.printStaff();
+		
+	
+	
+	}
+}

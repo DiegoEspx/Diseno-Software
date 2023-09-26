@@ -1,0 +1,122 @@
+package Herencia1;
+
+public class Circle {
+	//atributos
+	
+	private double radius;
+	private String color;
+	//constructores
+	
+	public Circle(){
+		this.radius=1.0;
+		this.color="red";	
+	}
+	public Circle(double radius){
+		this.radius=radius;
+		this.color="red";
+	}
+	public Circle(double radius, String color) {
+		this.radius = radius;
+		this.color = color;
+	}
+	//getters and setters
+	public double getRadius() {
+		return radius;
+	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	public double getArea(){
+		return Math.PI*radius*radius;
+	}
+	
+	
+	public void printCircle() {
+        System.out.println("Radio: " + radius);
+        System.out.println("Area: "+ this.getArea());
+        System.out.println("Color: " + color);
+    }
+	
+	//metodos
+	
+	@Override
+    public String toString() {
+        return "Circle [radius=" + radius + ", color=" + color + "]";
+    }
+	
+	
+
+}
+public class Cylinder extends Circle{
+	
+	//atributos
+	private double height;
+
+	//constructores
+	public Cylinder(double radius) {
+		super(radius);
+		this.height=1.0;
+	}
+	
+	public Cylinder(double radius, double height) {
+		super(radius);
+		this.height=height;
+	}
+	
+	public Cylinder(double radius, double height,String color) {
+		super(radius, color);
+		this.height=height;
+	}
+	//getters and setters
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+	public double getVolume() {
+        return getArea() * height;
+    }
+	//metodos
+	@Override
+    public String toString() {
+        return "Cylinder [radius=" + getRadius() + ", color=" + getColor() + ", height=" + height + "]";
+    }
+	
+	public void printCylinder() {
+        System.out.println("Altura: " + height);
+        
+    }
+	
+}
+public class Main {
+	public static void main(String[]args) {
+		Circle circle1=new Circle();
+		System.out.println("Circulo 1: ");
+		circle1.printCircle();
+		
+		System.out.println("________________________________");
+		//double radius, double height,String color
+		Cylinder cylinder1=new Cylinder(2.3,2.1,"red");
+		System.out.println("cilindro 1: ");
+		System.out.println("radio: " + cylinder1.getRadius());
+		System.out.println("color: " + cylinder1.getColor());
+		cylinder1.printCylinder();
+		System.out.println("Volumen: " + cylinder1.getVolume());
+		
+		
+		
+	}
+	
+	
+	
+}
