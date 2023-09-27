@@ -1,0 +1,150 @@
+package Herencia5;
+
+public class DenominadaPublicacion {
+	private String titulo;
+	private int precio;
+	
+	
+	public DenominadaPublicacion() {
+		super();
+		
+	}
+	public DenominadaPublicacion(String titulo, int precio) {
+		super();
+		this.titulo = titulo;
+		this.precio = precio;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public int getPrecio() {
+		return precio;
+	}
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+	@Override
+	public String toString() {
+		return "DenominadaPublicacion titulo=" + titulo + ", precio=" + precio;
+	}
+	
+	
+}
+package Herencia5;
+
+public class Disco extends DenominadaPublicacion{
+	private double duracion;
+	
+	public Disco() {
+		super();
+	}
+	
+	public Disco(String titulo, int precio, double duracion) {
+		super(titulo, precio);
+		this.duracion = duracion;
+	}
+	
+	public double getDuracion() {
+		return duracion;
+	}
+
+	public void setDuracion(double duracion) {
+		this.duracion = duracion;
+	}
+
+	@Override
+	public String toString() {
+		return "Disco: Titulo="+getTitulo()+", Precio= "+getPrecio()+", Duracion=" + duracion;
+		
+	}
+	
+}
+package Herencia5;
+
+public class Libro extends DenominadaPublicacion{
+
+	private int numPaginas;
+	private int añoPublicacion;
+	
+	public Libro() {
+		// TODO Auto-generated constructor stub
+	}
+	public Libro(String titulo, int precio, int numPaginas, int añoPublicacion) {
+		super(titulo, precio);
+		this.numPaginas = numPaginas;
+		this.añoPublicacion = añoPublicacion;
+		
+	}
+	
+	public int getNumPaginas() {
+		return numPaginas;
+	}
+
+	public void setNumPaginas(int numPaginas) {
+		this.numPaginas = numPaginas;
+	}
+
+	public int getAñoPublicacion() {
+		return añoPublicacion;
+	}
+
+	public void setAñoPublicacion(int añoPublicacion) {
+		this.añoPublicacion = añoPublicacion;
+	}
+
+	 @Override
+	    public String toString() {
+	        // Incluye título y precio en la representación de cadena
+	        return "Libro: Título=" + getTitulo() + ", Precio=" + getPrecio() + 
+	               ", Número de Páginas=" + this.getNumPaginas() + ", Año de Publicación=" + this.getAñoPublicacion();
+	    }
+	
+
+}
+package Herencia5;
+import java.util.Scanner;
+
+public class Main {
+	private static Scanner teclado;
+	public static void main(String[]args) {
+		teclado = new Scanner(System.in);
+		
+		Libro libro = new Libro(); 
+
+		System.out.println("Ingrese nombre del libro: ");
+		libro.setTitulo(teclado.next());
+
+		System.out.println("Ingrese el precio del libro: ");
+		libro.setPrecio(teclado.nextInt());
+
+		System.out.println("Ingrese el número de páginas del libro: ");
+		libro.setNumPaginas(teclado.nextInt());
+
+		System.out.println("Ingrese el año de publicación del libro: ");
+		libro.setAñoPublicacion(teclado.nextInt());
+
+		
+		System.out.println(libro.toString());
+		
+		Disco disco= new Disco();
+		//String titulo, int precio, double duracion
+		System.out.println("__________________________________________");
+		System.out.println("Ingrese nombre del Disco: ");
+		disco.setTitulo(teclado.next());
+
+		System.out.println("Ingrese el precio del Disco: ");
+		disco.setPrecio(teclado.nextInt());
+
+		System.out.println("Ingrese la duracion del Disco: ");
+		disco.setDuracion(teclado.nextDouble());
+		
+		System.out.println(disco.toString());
+		
+		teclado.close();
+	}
+	
+
+}

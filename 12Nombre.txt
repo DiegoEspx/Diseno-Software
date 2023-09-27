@@ -1,0 +1,162 @@
+package Herencia6;
+
+public class Nombre {
+	private String nombre;
+	private String primerApellido;
+	private String segundoApellido;
+	
+	public Nombre() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Nombre(String nombre, String primerApellido, String segundoApellido) {
+		this.nombre = nombre;
+		this.primerApellido = primerApellido;
+		this.segundoApellido = segundoApellido;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getPrimerApellido() {
+		return primerApellido;
+	}
+	public void setPrimerApellido(String primerApellido) {
+		this.primerApellido = primerApellido;
+	}
+	public String getSegundoApellido() {
+		return segundoApellido;
+	}
+	public void setSegundoApellido(String segundoApellido) {
+		this.segundoApellido = segundoApellido;
+	}
+	@Override
+	public String toString() {
+		return "Nombre [nombre=" + nombre + ", primerApellido=" + primerApellido + ", segundoApellido="
+				+ segundoApellido + "]";
+	}
+	
+	
+}
+package Herencia6;
+
+public class Direccion extends Nombre {
+	private String calle;
+	private String ciudad;
+	private String provincia;
+	private int codigoPostal;
+	
+	public Direccion() {
+		super();
+	}
+
+	public Direccion(String nombre, String primerApellido, String segundoApellido, String calle, String ciudad,
+			String provincia, int codigoPostal) {
+		super(nombre, primerApellido, segundoApellido);
+		this.calle = calle;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.codigoPostal = codigoPostal;
+	}
+	
+	public String getCalle() {
+		return calle;
+	}
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+	public String getCiudad() {
+		return ciudad;
+	}
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+	public String getProvincia() {
+		return provincia;
+	}
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+	public int getCodigoPostal() {
+		return codigoPostal;
+	}
+	public void setCodigoPostal(int codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+	public void nuevaDireccion(String calle, String ciudad, String provincia, int codigoPostal) {
+        this.calle = calle;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.codigoPostal = codigoPostal;
+    }
+
+    
+    public void nuevoNombre(String nombre, String primerApellido, String segundoApellido) {
+        setNombre(nombre);
+        setPrimerApellido(primerApellido);
+        setSegundoApellido(segundoApellido);
+    }
+	
+	@Override
+	public String toString() {
+		return "Nombre: "+getNombre()+", Primer Apellido: "+getPrimerApellido()+", Segundo Apellido: "+getSegundoApellido()+
+				" --- Direccion: calle=" + calle + ", ciudad=" + ciudad + ", provincia=" + provincia + ", codigoPostal="
+				+ codigoPostal;
+	}
+	
+	
+	
+	
+}
+package Herencia6;
+import java.util.Scanner;
+public class Main {
+	private static Scanner teclado;
+	public static void main(String[]args) {
+		teclado = new Scanner(System.in);
+		//String nombre, String primerApellido, String segundoApellido, String calle, String ciudad,
+		//String provincia, String codigoPostal
+		Direccion direccion= new Direccion();
+		
+		System.out.println("ingrese su nombre: " );
+		direccion.setNombre(teclado.nextLine());
+		
+		System.out.println("ingrese su primer apellido: ");
+		direccion.setPrimerApellido(teclado.nextLine());
+		
+		System.out.println("ingrese su segundo apellido: ");
+		direccion.setSegundoApellido(teclado.nextLine());
+		
+		System.out.println("ingrese el nombre de la calle: ");
+		direccion.setCalle(teclado.nextLine());
+		
+		System.out.println("ingrese la ciudad donde esta: ");
+		direccion.setCiudad(teclado.nextLine());
+		
+		System.out.println("ingrese la provincia: ");
+		direccion.setProvincia(teclado.nextLine());
+		
+		System.out.println("ingrese el codigo postal: ");
+		direccion.setCodigoPostal(teclado.nextInt());
+		
+		
+		System.out.println(direccion.toString());
+		
+		System.out.println("_________________________________________________________________________");
+		
+		Direccion Newdireccion = new Direccion();
+
+        Newdireccion.nuevaDireccion("334 calle12", "Cali", "edificio", 122245);
+
+        Newdireccion.nuevoNombre("Homero", "España", "Thompson");
+
+        System.out.println(Newdireccion.toString());
+		
+	}
+
+}

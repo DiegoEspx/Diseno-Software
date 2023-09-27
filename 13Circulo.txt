@@ -1,0 +1,139 @@
+package Herencia7;
+
+public class Circulo {
+	//atributos
+	private double radius;
+	//constructor
+	public Circulo(double radius) {
+		this.radius = radius;
+		
+	}
+	//getters and setters
+	public double getRadius() {
+		return radius;
+	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	
+	public double getArea(){
+		return Math.PI*radius*radius;
+	}
+	
+	
+	public double getCircunferencia() {
+		double circunferencia= 2* Math.PI*this.radius;
+		return circunferencia;
+		
+	}
+	//metodos
+	@Override
+    public String toString() {
+        return "Circulo: Radio=" + getRadius() +  ", Area: "+ getArea()+", Circunferencia: "+ getCircunferencia();
+    }
+
+	
+	
+
+}
+public class Cilindro extends Circulo{
+
+		//atributos
+		private double height;
+
+		//constructor
+		
+		public Cilindro(double radius, double height) {
+			super(radius);
+			this.height=height;
+		}
+		
+		//getters and setters
+
+		public double getHeight() {
+			return height;
+		}
+
+		public void setHeight(double height) {
+			this.height = height;
+		}
+		
+		public double getArea() {
+			double areaCilindro=2*Math.PI*this.getRadius()*this.height+2*Math.PI*(this.getRadius()*this.getRadius());
+			return areaCilindro;
+		}
+		public double getVolume() {
+	        double volumen=Math.PI*(this.getRadius()*this.getRadius())*this.height;
+	        return volumen;
+	    }
+		
+		
+		//metodos
+		@Override
+	    public String toString() {
+	        return "Cilindro: Radio=" + getRadius() + ", Altura=" + this.height +", Area: "+getArea() + 
+	        		", Volumen: "+ getVolume();
+	    }
+}
+public class CilindroHueco extends Cilindro{
+	private double radioExterior;
+	private double radioInterior;
+	public CilindroHueco(double height, double radioExterior, double radioInterior) {
+		super(height, height);
+		this.radioExterior = radioExterior;
+		this.radioInterior = radioInterior;
+	}
+	public double getRadioExterior() {
+		return radioExterior;
+	}
+	public void setRadioExterior(double radioExterior) {
+		this.radioExterior = radioExterior;
+	}
+	public double getRadioInterior() {
+		return radioInterior;
+	}
+	public void setRadioInterior(double radioInterior) {
+		this.radioInterior = radioInterior;
+	}
+	
+	public double getLongitud() {
+		double longitud=2*Math.PI*((Math.pow(this.radioExterior,2))-(Math.pow(radioInterior, 2)))+2
+				*Math.PI*this.radioExterior*getHeight()+2*Math.PI*getHeight()*this.radioInterior;
+		return longitud;
+	}
+	public double getVolume() {
+		double volumenHueco=Math.PI*((Math.pow(this.radioExterior,2))-(Math.pow(radioInterior, 2)))
+				* this.getHeight();
+		return volumenHueco;
+	}
+	
+	public double getArea() {
+		double areaHueca=2*Math.PI*this.getHeight()*(this.radioExterior+this.radioInterior)
+				+2*Math.PI*((Math.pow(this.radioExterior,2))-(Math.pow(radioInterior, 2)));
+		return areaHueca;
+	}
+	@Override
+	public String toString() {
+		return "CilindroHueco: radioExterior=" + this.radioExterior + ", radioInterior=" 
+				+ this.radioInterior + ", altura: "+this.getHeight()+ ", Longitud: "
+				+ this.getLongitud()+", Volumen: "+this.getVolume()+ ", Area: "+this.getArea();
+	}
+	
+	
+	
+
+}
+public class Main {
+
+	public static void main(String[]args) {
+		Circulo circulo= new Circulo(4);
+		System.out.println(circulo.toString());
+		
+		Cilindro cilindro = new Cilindro(4,6);
+		System.out.println(cilindro.toString());
+		
+		CilindroHueco hueco= new CilindroHueco(5,8,3);
+		System.out.println(hueco.toString());
+	}
+
+}
